@@ -10,5 +10,6 @@ namespace MultipleContext.Workflow
     {
         public int Id { get; set; }
         public string Type { get; set; }
+        public int DocumentId { get; set; }
     }
 }

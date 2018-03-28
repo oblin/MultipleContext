@@ -8,7 +8,7 @@ namespace MultipleContext.Workflow
 {
     public class Flow
     {
-        public int id { get; set; }
+        public int Id { get; set; }
         public int DocumentId { get; set; }
         public string Title { get; set; }
     }
