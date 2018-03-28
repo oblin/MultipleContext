@@ -12,4 +12,9 @@
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MultipleContext.Sales\MultipleContext.Sales.csproj" />
+    <ProjectReference Include="..\MultipleContext.Workflow\MultipleContext.Workflow.csproj" />
+  </ItemGroup>
+
 </Project>

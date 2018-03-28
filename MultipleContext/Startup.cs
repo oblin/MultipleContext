@@ -4,8 +4,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using MultipleContext.Sales;
+using MultipleContext.Workflow;
 
 namespace MultipleContext
 {
@@ -21,6 +24,18 @@ namespace MultipleContext
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<SalesContext>(config =>
+                config.UseSqlServer(
+                    Configuration.GetConnectionString("MultipleContext"),
+                    migration => migration.MigrationsAssembly("MultipleContext.Sales")
+                )
+            );
+            services.AddDbContext<WorkflowContext>(config =>
+                config.UseSqlServer(
+                    Configuration.GetConnectionString("MultipleContext"),
+                    migration => migration.MigrationsAssembly("MultipleContext.Workflow")
+                )
+            );
             services.AddMvc();
         }
 
