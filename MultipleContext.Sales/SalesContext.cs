@@ -14,6 +14,10 @@ namespace MultipleContext.Sales
         {
             modelBuilder.HasDefaultSchema("Sales");
             modelBuilder.Entity<Order>().ToTable("Order");
+            modelBuilder.Entity<Order>(options =>
+            {
+                options.OwnsOne(p => p.Address);
+            });
             modelBuilder.Entity<OrderItem>().ToTable("OrderItem");
         }
     }

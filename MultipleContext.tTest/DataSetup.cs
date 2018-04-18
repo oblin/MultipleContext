@@ -36,8 +36,9 @@ namespace MultipleContext.tTest
 
         public static void AddItemsToSales(SalesContext context)
         {
+            Address address = new Address { Street = "1", City = "2" };
             context.Orders.Add(new Order { Id = 1, OrderDate = new DateTime(2018, 3, 1) });
-            context.Orders.Add(new Order { Id = 2, OrderDate = new DateTime(2018, 3, 2) });
+            context.Orders.Add(new Order { Id = 2, OrderDate = new DateTime(2018, 3, 2), Address = address });
             context.OrderItems.Add(new OrderItem { Id = 1, OrderId = 1, ProductId = 1 });
             context.OrderItems.Add(new OrderItem { Id = 2, OrderId = 1, ProductId = 2 });
             context.SaveChanges();

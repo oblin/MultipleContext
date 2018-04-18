@@ -21,5 +21,13 @@ namespace MultipleContext.tTest
 
             Assert.Equal(2, context.Flows.Count());
         }
+
+        [Fact]
+        public void Test_Get_Address_Data()
+        {
+            var salesContext = DataSetup.GetSalesContext();
+            var order = salesContext.Orders.FirstOrDefault(p => p.Id == 2);
+            Assert.Equal("1", order.Address.Street);
+        }
     }
 }
